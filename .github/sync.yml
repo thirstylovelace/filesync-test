@@ -1,0 +1,7 @@
+group:
+  # configurations
+  - files:
+      - source: sync-test.txt
+        dest: sync-test.txt
+    repos: |
+      thirstylovelace/repo-standard

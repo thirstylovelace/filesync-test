@@ -1,0 +1,18 @@
+name: Sync Files
+on:
+  push:
+    branches:
+      - main
+jobs:
+  filesync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@main
+      - name: Run GitHub File Sync
+        uses: kaessert/repo-file-sync-action@tk/add-auto-merge-and-approve
+        with:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          PR_LABELS: run-e2e-tests,automated
+          AUTO_APPROVE_PR: true
+          ENABLE_AUTO_MERGE: true
